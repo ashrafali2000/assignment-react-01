@@ -20,8 +20,8 @@ function App() {
         <Route path="allProducts" element={<AllProducts></AllProducts>} />
 
         {/* nested route */}
-        <Route>
-          <Route path="account/" />
+     
+          <Route path="account/" >
           <Route index element={<MyAccount></MyAccount>} />
           <Route path="cart" element={<Cart></Cart>} />
         </Route>
@@ -29,7 +29,7 @@ function App() {
 
         <Route path="contact" element={<Contact></Contact>} />
         <Route path="addToCart" element={<AddToCart></AddToCart>} />
-        
+
         </ Route>
       </Routes>
     </div>
