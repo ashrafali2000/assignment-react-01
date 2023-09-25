@@ -8,12 +8,21 @@ const lastNameRef = useRef()
 const emailRef = useRef()
 const passwordRef = useRef()
 
-const onSubmitHandler = () => {
+const onSubmitHandler = (event) => {
+  event.preventDefault();
   const firstName = firstNameRef.current.value;
   const lastName = lastNameRef.current.value;
   const email = emailRef.current.value;
   const password = passwordRef.current.value;
-  onFormSubmit(firstName,lastName,email, password);
+  onFormSubmit(email, password);
+}
+const onSubmitHandler1 = (event) => {
+  event.preventDefault();
+  const firstName = firstNameRef.current.value;
+  const lastName = lastNameRef.current.value;
+  const email = emailRef.current.value;
+  const password = passwordRef.current.value;
+  onFormSubmit(email, password);
 }
 
 
@@ -32,7 +41,7 @@ const onSubmitHandler = () => {
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6"  onSubmit={onSubmitHandler}>
+            <form className="space-y-6"  onSubmit={onSubmitHandler1}>
                 {signIn? "":
                 <>
                  <div>
