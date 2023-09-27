@@ -6,6 +6,7 @@ const Cards = ({item, title, category, description}) => {
     <Card>
         {title}
         {category}
+     <p> {description}</p>  
     </Card>
   )
 }
