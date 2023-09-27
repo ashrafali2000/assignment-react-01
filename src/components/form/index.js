@@ -16,7 +16,7 @@ const onSubmitHandlerForSignUp = (event) => {
   const email = emailRef.current.value;
   const password = passwordRef.current.value;
   const imageUrl = imageUrlRef.current.value;
-  onFormSubmitSignUp(email, password);
+  onFormSubmitSignUp(firstName, lastName, email, password, imageUrl);
 }
 
 const onSubmitHandlerForSignIn = (event) => {
