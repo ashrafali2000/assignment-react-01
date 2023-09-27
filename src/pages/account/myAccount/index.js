@@ -1,76 +1,79 @@
-import React from 'react'
-import Form from '../../../components/form'
+import React from "react";
+import Form from "../../../components/form";
+
+
 // firebase
-import {getDatabase, ref, set , onValue } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set, onValue } from "firebase/database";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyBdnhGetpEZXSKmZbK4Lc5lz9zYRo4p26A",
-        authDomain: "projects-8f236.firebaseapp.com",
-        projectId: "projects-8f236",
-        storageBucket: "projects-8f236.appspot.com",
-        messagingSenderId: "606794719752",
-        appId: "1:606794719752:web:abb08f25aa1d765cdfa7bd",
-        measurementId: "G-KRJ96V0CX0",
-        databaseUrl:"https://projects-8f236-default-rtdb.firebaseio.com"
-      };
+const firebaseConfig = {
+  apiKey: "AIzaSyBdnhGetpEZXSKmZbK4Lc5lz9zYRo4p26A",
+  authDomain: "projects-8f236.firebaseapp.com",
+  projectId: "projects-8f236",
+  storageBucket: "projects-8f236.appspot.com",
+  messagingSenderId: "606794719752",
+  appId: "1:606794719752:web:abb08f25aa1d765cdfa7bd",
+  measurementId: "G-KRJ96V0CX0",
+  databaseUrl: "https://projects-8f236-default-rtdb.firebaseio.com",
+};
 
- const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase();
 
 const signUpUser = (firstName, lastName, email, password, imageUrl) => {
   createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    set(ref(db, `users/${user.uid}`), {
-          username: firstName+lastName,
-          email: email,
-          password:password,
-          profile_picture : imageUrl
-        });
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode)
-    console.log(errorMessage)
-  });
-
-}
+    .then((userCredential) => {
+      const user = userCredential.user;
+      set(ref(db, `users/${user.uid}`), {
+        username: firstName + lastName,
+        email: email,
+        password: password,
+        profile_picture: imageUrl,
+      });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+};
 
 const signInUser = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    const myData = ref(db, `users${user.uid}`);
-   onValue( myData , (data) => {
-    const myOneUser = data.val();
-    console.log("user data => "+ myOneUser + user.email);
-   })
-
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode)
-    console.log(errorMessage)
-  });
-
-}
+    .then((userCredential) => {
+      const user = userCredential.user;
+      const myData = ref(db, `users${user.uid}`);
+      onValue(myData, (data) => {
+        const myOneUser = data.val();
+        console.log("user data => " + myOneUser + user.email);
+      });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+};
 
 const MyAccount = () => {
-
   return (
-   <Form signIn  onFormSubmitSignUp = {signUpUser}  onFormSubmitSignIn = {signInUser}></Form>
-  )
-}
+    <Form
+      signIn
+      onFormSubmitSignUp={signUpUser}
+      onFormSubmitSignIn={signInUser}
+    ></Form>
+  );
+};
 
-export default MyAccount
-
-
-
+export default MyAccount;
 
 
 

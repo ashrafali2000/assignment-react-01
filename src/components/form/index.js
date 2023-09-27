@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom"
 
 
 export default function Form({signIn,onFormSubmitSignUp, onFormSubmitSignIn}) {
+  const [signInShow, setSignInShow] = useState(signIn);
+
 const firstNameRef = useRef()
 const lastNameRef = useRef()
 const emailRef = useRef()
@@ -26,6 +28,13 @@ const onSubmitHandlerForSignIn = (event) => {
   onFormSubmitSignIn(email, password);
 }
 
+const formShowSignUpHandler = () => {
+  setSignInShow("");
+}
+
+const formShowSignINHandler = () => {
+  setSignInShow("SignIn");
+}
 
     return (
       <>
@@ -37,13 +46,13 @@ const onSubmitHandlerForSignIn = (event) => {
               alt="Your Company"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            {signIn ? " Sign in to your account": "Sign up for new Account"}
+            {signInShow ? " Sign in to your account": "Sign up for new Account"}
             </h2>
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" >
-                {signIn? "":
+                {signInShow? "":
                 <>
                  <div>
                  <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">
@@ -101,7 +110,7 @@ const onSubmitHandlerForSignIn = (event) => {
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                     Password
                   </label>
-                  {signIn ? <div className="text-sm">
+                  {signInShow ? <div className="text-sm">
                     <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                       Forgot password?
                     </a>
@@ -119,7 +128,7 @@ const onSubmitHandlerForSignIn = (event) => {
                   />
                 </div>
               </div>
-              {signIn ? "":
+              {signInShow ? "":
               <div>
               <label htmlFor="imageUrl" className="block text-sm font-medium leading-6 text-gray-900">
                 ImageUrl
@@ -137,7 +146,7 @@ const onSubmitHandlerForSignIn = (event) => {
               </div>
             </div>}
   
-            {signIn?  <div>
+            {signInShow?  <div>
                 <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -158,10 +167,10 @@ const onSubmitHandlerForSignIn = (event) => {
   
             <p className="mt-10 text-center text-sm text-gray-500">
               Not a member?{' '}
-              {signIn ? <Link href="/signUp" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              {signInShow ? <Link href="/" onClick={formShowSignUpHandler} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                 Sign Up
               </Link>:
-              <Link href="/signIn" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              <Link href="/" onClick={formShowSignINHandler} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                 Sign In
               </Link>}
             </p>
