@@ -1,17 +1,27 @@
 import React from 'react'
 import Form from '../../../components/form'
 // firebase
-
-import { getDatabase, ref, set  } from "firebase/database";
-
+import {getDatabase, ref, set , onValue } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
-import { firebaseApp } from './Firebase';
+import { initializeApp } from "firebase/app";
 
-const auth = getAuth(firebaseApp);
+    const firebaseConfig = {
+        apiKey: "AIzaSyBdnhGetpEZXSKmZbK4Lc5lz9zYRo4p26A",
+        authDomain: "projects-8f236.firebaseapp.com",
+        projectId: "projects-8f236",
+        storageBucket: "projects-8f236.appspot.com",
+        messagingSenderId: "606794719752",
+        appId: "1:606794719752:web:abb08f25aa1d765cdfa7bd",
+        measurementId: "G-KRJ96V0CX0",
+        databaseUrl:"https://projects-8f236-default-rtdb.firebaseio.com"
+      };
+
+ const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const db = getDatabase();
 
-const signUpUser = (firstName,lastName,email, password,imageUrl) => {
-  createUserWithEmailAndPassword(auth,firstName,lastName, email, password,imageUrl)
+const signUpUser = (firstName, lastName, email, password, imageUrl) => {
+  createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
     set(ref(db, `users/${user.uid}`), {
@@ -20,6 +30,25 @@ const signUpUser = (firstName,lastName,email, password,imageUrl) => {
           password:password,
           profile_picture : imageUrl
         });
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode)
+    console.log(errorMessage)
+  });
+
+}
+
+const signInUser = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    const myData = ref(db, `users${user.uid}`);
+   onValue( myData , (data) => {
+    const myOneUser = data.val();
+    console.log("user data => "+ myOneUser + user.email);
+   })
 
   })
   .catch((error) => {
@@ -30,6 +59,23 @@ const signUpUser = (firstName,lastName,email, password,imageUrl) => {
   });
 
 }
+
+const MyAccount = () => {
+
+  return (
+   <Form signIn  onFormSubmitSignUp = {signUpUser}  onFormSubmitSignIn = {signInUser}></Form>
+  )
+}
+
+export default MyAccount
+
+
+
+
+
+
+
+
 
 
 
@@ -73,13 +119,3 @@ const signUpUser = (firstName,lastName,email, password,imageUrl) => {
 //   });
 
 // }
-
-
-const MyAccount = () => {
-
-  return (
-   <Form signI  onFormSubmitSignUp = {signUpUser}  onFormSubmitSignIn></Form>
-  )
-}
-
-export default MyAccount
