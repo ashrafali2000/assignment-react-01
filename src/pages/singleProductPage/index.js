@@ -11,8 +11,6 @@ const SingleCard = ({}) => {
   const {porductID} = params;
   const singleProduct = Products.find(((item) => item.id === +porductID));
   
-
-
   return (
     <Card className="singleCardDetails" >
   <div className='imagesInDetails'>

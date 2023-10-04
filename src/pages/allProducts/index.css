@@ -12,7 +12,14 @@
     flex-wrap: wrap;
     align-items: center;
     text-align: center;
-    background-color: beige;
-    padding: 20px;
+    padding: 10px;
+    width: 50%;
     
+}
+.navBarByCategories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+   
 }
