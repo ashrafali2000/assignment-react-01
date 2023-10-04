@@ -9,6 +9,7 @@ import Contact from "./pages/contact";
 import AddToCart from "./pages/addToCart";
 import MyAccount from "./pages/account/myAccount";
 import Cart from "./pages/account/cart";
+import SingleProductPage from "./pages/singleProductPage";
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         <Route path="about" element={<About></About>} />
         <Route path="dashboard" element={<Dashboard></Dashboard>} />
         <Route path="allProducts" element={<AllProducts></AllProducts>} />
+        <Route path="allProducts/singleProductPage/:porductID" element={<SingleProductPage></SingleProductPage>} />
 
         {/* nested route */}
      
@@ -27,7 +29,7 @@ function App() {
         </Route>
         {/* end nested route */}
 
-        <Route path="contact/:userName" element={<Contact></Contact>} />
+        <Route path="contact" element={<Contact></Contact>} />
         <Route path="addToCart" element={<AddToCart></AddToCart>} />
 
         </ Route>
