@@ -1,0 +1,10 @@
+.myCardCls{
+ width: 400px;
+ height: 400px;
+ background-color: rgb(238, 230, 220);
+text-align: center;
+}
+.myCardImg{
+width: 270px !important;
+height: 270px !important;
+}
