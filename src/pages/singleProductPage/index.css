@@ -1,0 +1,13 @@
+
+ .singleCardImg {
+  width: 250px !important;
+  height: 300px !important;
+}
+.imagesInDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
