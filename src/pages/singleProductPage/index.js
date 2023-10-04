@@ -14,7 +14,7 @@ const SingleCard = ({}) => {
   return (
     <Card className="singleCardDetails" >
   <div className='imagesInDetails'>
-     {singleProduct.images.map(p =><Image src={p} className='singleCardImg'></Image>)}</div>
+     {singleProduct.images.map((p) =><Image key={Math.random()} src={p} className='singleCardImg'></Image>)}</div>
        <p>{singleProduct.title}</p>
        <p>{singleProduct.category}</p> 
       <AddToCartBtn></AddToCartBtn>
