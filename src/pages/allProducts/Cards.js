@@ -2,7 +2,7 @@ import Card from 'antd/es/card/Card'
 import React from 'react'
 import "./Card.css"
 import { Image } from 'antd'
-import AddToCartBtn from '../../components/addToCartBtn'
+import SeeDetailBtn from '../../components/seeDetailBtn'
 
 const Cards = ({item,img, title, category, description}) => {
   return (
@@ -10,7 +10,8 @@ const Cards = ({item,img, title, category, description}) => {
      <Image src={img} className='myCardImg'></Image>
        <p>{title}</p>
        <p>{category}</p> 
-       <AddToCartBtn />
+
+       <SeeDetailBtn />
     </Card>
   )
 }
