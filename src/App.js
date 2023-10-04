@@ -27,7 +27,7 @@ function App() {
         </Route>
         {/* end nested route */}
 
-        <Route path="contact" element={<Contact></Contact>} />
+        <Route path="contact/:userName" element={<Contact></Contact>} />
         <Route path="addToCart" element={<AddToCart></AddToCart>} />
 
         </ Route>
