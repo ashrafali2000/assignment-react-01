@@ -11,7 +11,7 @@ const Cards = ({item,img, title, category, description}) => {
        <p>{title}</p>
        <p>{category}</p> 
 
-       <SeeDetailBtn />
+       <SeeDetailBtn itemId = {item} />
     </Card>
   )
 }

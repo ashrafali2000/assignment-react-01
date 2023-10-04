@@ -1,8 +1,9 @@
 import React from 'react'
 import "./index.css"
-const SeeDetailBtn = () => {
+import { Link } from 'react-router-dom'
+const SeeDetailBtn = ({itemId}) => {
   return (
-    <button className='SeeDetailBtn'>See Details</button>
+   <p style={{marginTop:10}}><Link className='SeeDetailBtn' to={`singleProductPage/${itemId}`}>See Details</Link></p> 
   )
 }
 
