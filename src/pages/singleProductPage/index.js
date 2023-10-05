@@ -6,19 +6,29 @@ import Products from "../allProducts/allProducts.json"
 import "./index.css"
 import AddToCartBtn from '../../components/addToCartBtn'
 
-const SingleCard = ({}) => {
+const SingleCard = () => {
   const params = useParams();
   const {porductID} = params;
   const singleProduct = Products.find(((item) => item.id === +porductID));
   
   return (
-    <Card className="singleCardDetails" >
-  <div className='imagesInDetails'>
-     {singleProduct.images.map((p) =><Image key={Math.random()} src={p} className='singleCardImg'></Image>)}</div>
-       <p>{singleProduct.title}</p>
+    <div>
+
+    <div className="singleCardDetails" >
+
+  <Card className='singleAddToCardDetailsChild'>
+    <Image src={singleProduct.images[1]} className='singleAddToCardImg' />
+    <p>{singleProduct.title}</p>
        <p>{singleProduct.category}</p> 
-      <AddToCartBtn></AddToCartBtn>
-    </Card>
+      <AddToCartBtn ></AddToCartBtn>
+
+  </Card> 
+    </div>
+   <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:20}}><h1 className='ourViews'> Product Our Views</h1></div> 
+  <div className='imagesInDetails'>
+     {singleProduct.images.map((p) =><Card key={Math.random()}className='singleCardDetailsChild'><Image src={p} className='singleCardImg' />
+     </Card>)}</div>
+    </div>
   )
 }
 
