@@ -21,6 +21,13 @@ import { shopProdcuts } from '../addToCartBtn'
 export default function ShoppingCart({hideShopingHandler}) {
   const [open, setOpen] = useState(true)
 
+  const [itmeInCart, setItemInCart] = useState(shopProdcuts);
+ let items;
+  const removeHandler = (id) => {
+     items = itmeInCart.filter((p) => p.id !== +id);
+     console.log(items);
+     setItemInCart(items);
+  }
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -72,7 +79,7 @@ export default function ShoppingCart({hideShopingHandler}) {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {shopProdcuts.map((product) => (
+                            {itmeInCart && itmeInCart.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
@@ -99,7 +106,7 @@ export default function ShoppingCart({hideShopingHandler}) {
                                       <button
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
+                                      onClick={() => removeHandler(product.id)} >
                                         Remove
                                       </button>
                                     </div>
@@ -107,6 +114,7 @@ export default function ShoppingCart({hideShopingHandler}) {
                                 </div>
                               </li>
                             ))}
+                            <div>Your Cart is empty</div>
                           </ul>
                         </div>
                       </div>
