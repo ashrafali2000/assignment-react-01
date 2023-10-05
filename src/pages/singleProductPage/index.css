@@ -1,7 +1,25 @@
-
+.singleCardDetails{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.singleCardDetailsChild{
+background-color: rgb(205, 216, 216);
+}
+.singleAddToCardDetailsChild{
+  background-color: rgb(246, 239, 220);
+  width: 70%;
+  text-align: center;
+  margin-top: 30px;
+}
  .singleCardImg {
-  width: 250px !important;
-  height: 300px !important;
+  width: 220px !important;
+  height: 220px !important;
+
+}
+.singleAddToCardImg{
+  width: 100% !important;
+  height: 80% !important;
 }
 .imagesInDetails{
     display: flex;
@@ -9,5 +27,15 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-
+    margin-top: 50px;
+}
+.ourViews{
+  background-color: rgb(172, 66, 42);
+  color: white;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 10px;
+  text-align: center;
+  width: 40%;
+  border-radius: 10px;
 }
