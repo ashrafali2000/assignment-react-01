@@ -27,7 +27,7 @@ const products = [
   // More products...
 ]
 
-export default function ShoppingCart() {
+export default function ShoppingCart({hideShopingHandler}) {
   const [open, setOpen] = useState(true)
 
   return (
@@ -66,7 +66,10 @@ export default function ShoppingCart() {
                           <button
                             type="button"
                             className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={() => {
+                                setOpen(false)
+                                hideShopingHandler()
+                            } }
                           >
                             <span className="absolute -inset-0.5" />
                             <span className="sr-only">Close panel</span>
@@ -138,7 +141,9 @@ export default function ShoppingCart() {
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={() => {setOpen(false)
+                                hideShopingHandler()
+                            }}
                           >
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>
