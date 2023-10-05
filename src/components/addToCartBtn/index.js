@@ -4,7 +4,10 @@ export const shopProdcuts = [];
 const AddToCartBtn = ({showShopingHandler,singleProduct}) => { 
 
   const addShopProductsHandler = () => {
-    shopProdcuts.push(singleProduct);
+    const allShopProducts = shopProdcuts.find(i => i.id === +singleProduct.id );
+    if(!allShopProducts){
+      shopProdcuts.push(singleProduct);
+    }
   }
   return (
     <button className='AddToCartBtn' onClick={() => {
