@@ -29,7 +29,7 @@ const SingleCard = () => {
     <Image src={singleProduct.images[1]} className='singleAddToCardImg' />
     <p>{singleProduct.title}</p>
        <p>{singleProduct.category}</p> 
-      <AddToCartBtn showShopingHandler = {showShopingHandler} />
+      <AddToCartBtn showShopingHandler = {showShopingHandler} singleProduct = {singleProduct} />
      {showShoping ? <ShoppingCart hideShopingHandler ={hideShopingHandler}></ShoppingCart>:""}
 
   </Card> 
