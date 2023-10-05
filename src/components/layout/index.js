@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Outlet, Link } from 'react-router-dom'
-
+import logo from "../../logo.png"
 const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'AllProducts', href: '/allProducts', current: false },
@@ -39,7 +39,7 @@ export default function Layout() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src={logo}
                     alt="Your Company"
                   />
                 </div>
