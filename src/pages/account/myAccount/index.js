@@ -74,6 +74,7 @@ const MyAccount = () => {
     }
     else{
       localStorage.setItem(email, JSON.stringify({firstName, lastName, email, password, imageUrl}));
+      alert("SignUp Sucessfull")
     }
   }
 
