@@ -5,5 +5,4 @@ const AuthHandler = () => {
     const authCtx = useContext(AuthContext);
   return  authCtx.isLoggedIn
 }
-
-export default AuthHandler
+export default AuthHandler  

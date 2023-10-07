@@ -1,7 +1,6 @@
 import React from "react";
 import Form from "../../../components/form";
 
-
 // firebase
 // import { getDatabase, ref, set, onValue } from "firebase/database";
 // import {
@@ -10,7 +9,6 @@ import Form from "../../../components/form";
 //   signInWithEmailAndPassword,
 // } from "firebase/auth";
 // import { initializeApp } from "firebase/app";
-
 // const firebaseConfig = {
 //   apiKey: "AIzaSyBdnhGetpEZXSKmZbK4Lc5lz9zYRo4p26A",
 //   authDomain: "projects-8f236.firebaseapp.com",
@@ -21,11 +19,9 @@ import Form from "../../../components/form";
 //   measurementId: "G-KRJ96V0CX0",
 //   databaseUrl: "https://projects-8f236-default-rtdb.firebaseio.com",
 // };
-
 // const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 // const db = getDatabase();
-
 // const signUpUser = (firstName, lastName, email, password, imageUrl) => {
 //   createUserWithEmailAndPassword(auth, email, password)
 //     .then((userCredential) => {
@@ -44,7 +40,6 @@ import Form from "../../../components/form";
 //       console.log(errorMessage);
 //     });
 // };
-
 // const signInUser = (email, password) => {
 //   signInWithEmailAndPassword(auth, email, password)
 //     .then((userCredential) => {
@@ -65,6 +60,7 @@ import Form from "../../../components/form";
 
 
 // With LocalStorage signUp and signIn
+
 const MyAccount = () => {
 // signUp Function
   const signUpUser = (firstName, lastName, email, password, imageUrl) => {
@@ -93,7 +89,6 @@ const MyAccount = () => {
       alert("User not exist")
     }
   }
-
   return (
     <Form
       signIn
@@ -102,31 +97,18 @@ const MyAccount = () => {
     ></Form>
   );
 };
-
 export default MyAccount;
 
 
 
 
 
-
-
-
-
-
-
-
-
 // Authentication
-
 // import { getAnalytics } from "firebase/analytics";
-
 // import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 // import { firebaseApp } from './Firebase';
-
 // const auth = getAuth(firebaseApp);
 // const auth1 = getAuth();
-
 // const signUpUser = (email, password) => {
 //   createUserWithEmailAndPassword(auth, email, password)
 //   .then((userCredential) => {
@@ -139,9 +121,7 @@ export default MyAccount;
 //     console.log(errorCode)
 //     console.log(errorMessage)
 //   });
-
 // }
-
 // const signInUser = (email, password) => {
 //   signInWithEmailAndPassword(auth1, email, password)
 //   .then((userCredential) => {
@@ -154,5 +134,4 @@ export default MyAccount;
 //     console.log(errorCode)
 //     console.log(errorMessage)
 //   });
-
 // }
