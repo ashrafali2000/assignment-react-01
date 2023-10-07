@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "../../../components/form";
 
 // firebase
@@ -62,6 +62,7 @@ import Form from "../../../components/form";
 // With LocalStorage signUp and signIn
 
 const MyAccount = () => {
+  const [userLoggedIn, setUserLoggedIn] = useState();
 // signUp Function
   const signUpUser = (firstName, lastName, email, password, imageUrl) => {
     let userFind = localStorage.getItem(email);
