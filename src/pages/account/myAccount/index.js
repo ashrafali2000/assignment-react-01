@@ -77,8 +77,9 @@ const MyAccount = () => {
 
   const signInUser = (email, password) => {
     let userFind = localStorage.getItem(email);
-    
-    if(userFind ) {
+
+    if(userFind.email === email ) {
+      console.log("Login sucessfully");
       console.log(userFind);
     }
     else{
