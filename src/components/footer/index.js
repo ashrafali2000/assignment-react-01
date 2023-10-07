@@ -1,6 +1,6 @@
 import React from 'react'
-import "./footer.css"
 import { Link } from 'react-router-dom'
+import "./index.css"
 import {BiLogoFacebook} from "react-icons/bi"
 import {BsFileX, BsFillTelephoneFill} from "react-icons/bs"
 import {CgMail} from "react-icons/cg"
@@ -9,8 +9,8 @@ import {AiOutlineTwitter,AiOutlineGoogle,AiOutlineInstagram,AiFillLinkedin,AiFil
 
 const Footer = () => {
   return (
-    <div className="footerContainer">
-      <div className='mediaContainer'><h1 style={{fontSize:20}}>Get connected with us on social networks:</h1><div className='mediaIconCls'>
+    <div style={{backgroundColor:"#333",color:"#fff"}}>
+      <div style={{display:'flex',justifyContent:"space-between",flexWrap:'wrap', alignItems:'center',padding:" 20px 70px"}}><h1 style={{fontSize:20}}>Get connected with us on social networks:</h1><div style={{display:'flex',justifyContent:"space-between",alignItems:"center",gap:20,flexWrap:'wrap'}}>
        <Link> <BiLogoFacebook className='icon'/></Link>
        <Link><AiOutlineTwitter className='icon'/></Link>
        <Link> <AiOutlineGoogle className='icon'/></Link>
@@ -20,7 +20,14 @@ const Footer = () => {
         </div></div>
         <hr />
 
-      <div className='detailsOverViewContainer'>
+      <div style={{
+        display:"flex",
+        justifyContent:'space-between',
+        alignItems:"center",
+        flexWrap:"wrap",
+        padding:"18px 70px",
+        gap:18
+      }}>
         <div><h1 style={{fontSize:18}}>Product with New</h1><p style={{width:270,wordWrap:"break-word"}}>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>
 
         <div><h1 style={{fontSize:18}}>PRODUCTS</h1>

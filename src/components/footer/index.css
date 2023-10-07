@@ -1,10 +1,14 @@
-.footerContainer{
-    background-color:"#333";
-    color:"#fff"
-}
 .icon{
     width: 27px;
     height: 27px;
+}
+
+
+
+/* These all classes are not acceptable in js file */
+/* .footerContainer{
+    background-color:"#333";
+    color:"#fff"
 }
 .mediaContainer{
     display:'flex';
@@ -27,4 +31,4 @@
     flex-wrap: wrap;
     padding:"18px 70px";
     gap:25
-}
+} */
