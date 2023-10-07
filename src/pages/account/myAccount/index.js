@@ -77,8 +77,9 @@ const MyAccount = () => {
 
   const signInUser = (email, password) => {
     let userFind = localStorage.getItem(email);
-    if(userFind) {
-     alert("User already exit");
+    
+    if(userFind ) {
+      console.log(userFind);
     }
     else{
       // localStorage.setItem(email, JSON.stringify({firstName, lastName, email, password, imageUrl}));
