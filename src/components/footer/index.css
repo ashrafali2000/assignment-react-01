@@ -1,0 +1,30 @@
+.footerContainer{
+    background-color:"#333";
+    color:"#fff"
+}
+.icon{
+    width: 27px;
+    height: 27px;
+}
+.mediaContainer{
+    display:'flex';
+    justify-content:"space-between";
+    flex-wrap: wrap;
+     align-items: center;
+     padding:" 20px 70px"
+}
+.mediaIconCls{
+    display:'flex';
+    justify-content:"space-between";
+    align-items:"center";
+    gap:20;
+    flex-wrap:'wrap'
+}
+.detailsOverViewContainer{
+    display:"flex";
+    justify-content:'space-between';
+    align-items:"center";
+    flex-wrap: wrap;
+    padding:"18px 70px";
+    gap:25
+}
