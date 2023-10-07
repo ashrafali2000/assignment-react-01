@@ -16,6 +16,7 @@ const SingleCard = () => {
   const hideShopingHandler = () => {
     setShowShoping(false);
   }
+  
   const params = useParams();
   const {porductID} = params;
   const singleProduct = Products.find(((item) => item.id === +porductID));
