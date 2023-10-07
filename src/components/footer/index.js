@@ -1,5 +1,5 @@
 import React from 'react'
-import "./index.css"
+import "./footer.css"
 import { Link } from 'react-router-dom'
 import {BiLogoFacebook} from "react-icons/bi"
 import {BsFileX, BsFillTelephoneFill} from "react-icons/bs"
