@@ -63,8 +63,10 @@ import Form from "../../../components/form";
 //     });
 // };
 
-const MyAccount = () => {
 
+// With LocalStorage signUp and signIn
+const MyAccount = () => {
+// signUp Function
   const signUpUser = (firstName, lastName, email, password, imageUrl) => {
     let userFind = localStorage.getItem(email);
     if(userFind) {
@@ -75,15 +77,20 @@ const MyAccount = () => {
     }
   }
 
+// SignIn Function
   const signInUser = (email, password) => {
     let userFind = JSON.parse(localStorage.getItem(email));
 
-    if(userFind.email == email ) {
-      console.log("Login sucessfully");
-      console.log(userFind);
+  if(userFind){
+    if(userFind.email === email && userFind.password === password ) {
+     alert("User Sucessfully Login")
     }
     else{
-      // localStorage.setItem(email, JSON.stringify({firstName, lastName, email, password, imageUrl}));
+      alert("Please type correct password");
+    }
+  }
+    else{
+      alert("User not exist")
     }
   }
 
