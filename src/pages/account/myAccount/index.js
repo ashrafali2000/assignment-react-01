@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Form from "../../../components/form";
 
 // firebase
@@ -58,38 +57,48 @@ import Form from "../../../components/form";
 //     });
 // };
 
-
 // With LocalStorage signUp and signIn
 
-const MyAccount = () => {
-  const [userLoggedIn, setUserLoggedIn] = useState();
-// signUp Function
+// Create context
+const MyAccount = ({ setUserLoggedInImg }) => {
+  // signUp Function
   const signUpUser = (firstName, lastName, email, password, imageUrl) => {
     let userFind = localStorage.getItem(email);
-    if(userFind) {
-     alert("User already exit");
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      password === "" ||
+      imageUrl === ""
+    ) {
+      alert("Please Fill the Input");
+    } else {
+      if (userFind) {
+        alert("User already exit");
+      } else {
+        localStorage.setItem(
+          email,
+          JSON.stringify({ firstName, lastName, email, password, imageUrl })
+        );
+        alert("SignUp Sucessfull");
+      }
     }
-    else{
-      localStorage.setItem(email, JSON.stringify({firstName, lastName, email, password, imageUrl}));
-      alert("SignUp Sucessfull")
-    }
-  }
+  };
 
-// SignIn Function
+  // SignIn Function
   const signInUser = (email, password) => {
     let userFind = JSON.parse(localStorage.getItem(email));
-  if(userFind){
-    if(userFind.email === email && userFind.password === password ) {
-     alert("User Sucessfully Login")
+    if (userFind) {
+      if (userFind.email === email && userFind.password === password) {
+        alert("User Sucessfully Login");
+        setUserLoggedInImg(userFind.imageUrl);
+        console.log(userFind.imageUrl);
+      } else {
+        alert("Please type correct password");
+      }
+    } else {
+      alert("User not exist");
     }
-    else{
-      alert("Please type correct password");
-    }
-  }
-    else{
-      alert("User not exist")
-    }
-  }
+  };
   return (
     <Form
       signIn
@@ -99,10 +108,6 @@ const MyAccount = () => {
   );
 };
 export default MyAccount;
-
-
-
-
 
 // Authentication
 // import { getAnalytics } from "firebase/analytics";

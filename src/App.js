@@ -10,11 +10,15 @@ import AddToCart from "./pages/addToCart";
 import MyAccount from "./pages/account/myAccount";
 import Cart from "./pages/account/cart";
 import SingleProductPage from "./pages/singleProductPage";
+import { useState } from "react";
+
 function App() {
+  const [userLoggInImg, setUserLoggedInImg]  = useState("");
+  const [loginBtn, setLoginBtn] = useState(false);
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Layout></Layout>} >
+        <Route path="/" element={<Layout  userLoggInImg ={userLoggInImg}></Layout>} >
         <Route index element={<Home></Home>} />
         <Route path="about" element={<About></About>} />
         <Route path="dashboard" element={<Dashboard></Dashboard>} />
@@ -24,7 +28,9 @@ function App() {
         {/* nested route */}
      
           <Route path="account/" >
-          <Route index element={<MyAccount></MyAccount>} />
+          <Route index element={
+              <MyAccount setUserLoggedInImg={setUserLoggedInImg}></MyAccount>
+          } />
           <Route path="cart" element={<Cart></Cart>} />
         </Route>
         {/* end nested route */}
