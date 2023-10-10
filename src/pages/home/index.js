@@ -122,7 +122,7 @@ const Home = () => {
       {/* Our Featured Products */}
       <div>
         <h1 className="text-center mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Our Featured Products</h1>
-       <div className="flex justify-center mt-2"><hr className="bg-orange-600 w-40 h-2 rounded "/></div> 
+       <div className="flex justify-center mt-5"><hr className="bg-orange-600 w-40 h-2 rounded "/></div> 
         <div className="flex flex-wrap mt-10 p-8 gap-10 bg-gray-200 justify-center" >
           {images.map((p) => <Image key={Math.random()} style={{
             height:230,width:230
