@@ -1,5 +1,6 @@
 import { Image } from "antd";
 import React from "react";
+import {MdArrowForwardIos} from "react-icons/md"
 const images = [
   {
     img: "https://static-01.daraz.pk/p/612eafdcc33588aa640464d9ebdf0e6d.jpg",
@@ -34,6 +35,28 @@ const weekItem = [
     img: "https://www.jiomart.com/images/product/original/rvdtte76wn/birde-stylish-comfortable-navy-sports-shoes-for-men-s-product-images-rvdtte76wn-0-202305250800.jpg?im=Resize=(500,630)",
     title: "Sport Shoes",
     price: "40$",
+  },
+  {
+    img: "https://pcdesignperfumes.com/wp-content/uploads/2020/07/03-2046-00-00.jpg",
+    title: "Smilly Perfume",
+    price: "60$",
+  },
+];
+const LovedItem = [
+  {
+    img: "https://cdn.edenrobe.com/media/amasty/amopttablet/catalog/product/images/Men/Men_Coat_Pant_Formal/2023/23_M_MenCoatPantFormal_EMTCPC22-6814_1.webp",
+    title: "Men Coat",
+    price: "80$",
+  },
+  {
+    img: "https://www.jiomart.com/images/product/original/rvdtte76wn/birde-stylish-comfortable-navy-sports-shoes-for-men-s-product-images-rvdtte76wn-0-202305250800.jpg?im=Resize=(500,630)",
+    title: "Sport Shoes",
+    price: "40$",
+  },
+  {
+    img: "https://pcdesignperfumes.com/wp-content/uploads/2020/07/03-2046-00-00.jpg",
+    title: "Smilly Perfume",
+    price: "60$",
   },
   {
     img: "https://pcdesignperfumes.com/wp-content/uploads/2020/07/03-2046-00-00.jpg",
@@ -127,9 +150,9 @@ const Home = () => {
 
                 <a
                   href="#"
-                  className="inline-block rounded-md border border-transparent  bg-orange-500 px-8 py-3 text-center font-medium text-white hover:bg-orange-400"
+                  className="inline-block w-48 rounded-md border border-transparent  bg-orange-500 px-8 py-3 flex justify-center gap-2 items-center flex-wrap font-medium text-white hover:bg-orange-400"
                 >
-                 Get Started
+                 Get Started <MdArrowForwardIos></MdArrowForwardIos>
                 </a>
               </div>
             </div>
@@ -201,11 +224,8 @@ const Home = () => {
       {/* Shop Now Section */}
       <div>
         <div>
-        
         </div>
-
-
-        <div className="w-[700] h-96 bg-orange-100 relative p-2 md:p-16">
+        <div className="w-[700] h-96 bg-fuchsia-100 relative p-2 md:p-16">
         <h1 className="text-start text-gray-900 font-bold text-4xl sm:text-4xl">
         Hurry Up! 
         </h1>
@@ -215,17 +235,63 @@ const Home = () => {
         <p>Buy This T-shirt At 20% Discount, Use Code Off20</p>
         <a
                   href="#"
-                  className="inline-block rounded-md border border-transparent  bg-orange-500 px-8 py-3 text-center font-medium text-white hover:bg-orange-400"
+                  className="inline-block w-48 rounded-md border border-transparent  bg-orange-500 px-8 py-3 text-center font-medium text-white 
+                  flex justify-center gap-2 items-center flex-wrap hover:bg-orange-400"
                 >
-                  Shop Now 
+                  Shop Now <MdArrowForwardIos></MdArrowForwardIos>
                 </a>
-
-
         <img
           src="https://www.advertisemint.com/wp-content/uploads/2021/09/advertisemint-amazon-ad-agency.png"
           alt=""
           className="h-80 w-80 object-contain object-center  absolute  bottom-10 right-0 md:right-10"
         /></div>
+      </div>
+
+      {/* Most Loved Products */}
+      <h1 className="text-center mt-10 text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          Our Loved Products
+        </h1>
+        <div className="flex justify-center mt-5">
+          <hr className="bg-orange-600 w-40 h-2 rounded " />
+        </div>
+      <div className="flex justify-center items-center flex-wrap mt-8">
+      <div className="w-[100] h-[100]  flex justify-center items-center flex-col">
+            <img
+              src={LovedItem[0].img}
+              alt=""
+              className="object-contain h-80 w-80 object-center"
+            />
+            <p>{LovedItem[0].title}</p>
+            <p>{weekItem[0].price}</p>
+          </div>
+      <div className="w-[100] h-[100]  flex justify-center items-center flex-col">
+            <img
+              src={LovedItem[1].img}
+              alt=""
+              className="object-contain h-80 w-80 object-center"
+            />
+            <p>{LovedItem[1].title}</p>
+            <p>{LovedItem[1].price}</p>
+          </div>
+      <div className="w-[100] h-[100]  flex justify-center items-center flex-col">
+            <img
+              src={LovedItem[2].img}
+              alt=""
+              className="object-contain h-80 w-80 object-center"
+            />
+            <p>{LovedItem[2].title}</p>
+            <p>{LovedItem[2].price}</p>
+          </div>
+      <div className="w-[100] h-[100]  flex justify-center items-center flex-col">
+            <img
+              src={LovedItem[3].img}
+              alt=""
+              className="object-contain h-80 w-80 object-center"
+            />
+            <p>{LovedItem[3].title}</p>
+            <p>{LovedItem[3].price}</p>
+          </div>
+       
       </div>
     </div>
   );
