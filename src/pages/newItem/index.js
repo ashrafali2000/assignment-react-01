@@ -1,20 +1,33 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const NewItem = () => {
+    const autCtx = useContext(AuthContext);
+    const userEmail = autCtx.userEmail;
   const titleRef = useRef();
   const priceRef = useRef();
   const brandRef = useRef();
 
-  const addItemHandler = () => {
-    const title = titleRef.current.value;
-    const price = priceRef.current.value;
-    const brand = brandRef.current.value;
+  const addItemHandler = (event) => {
+    event.preventDefault()
+    const find = JSON.parse(localStorage.getItem(userEmail));
+    if(find) {
+        const title = titleRef.current.value;
+        const price = priceRef.current.value;
+        const brand = brandRef.current.value;
+        console.log(find)
+        const {products}  = find;
+        products.push({id:products.length, title:title,price:price,brand:brand})
+
+      localStorage.setItem(find.email,JSON.stringify({...find, products}))
+    }
+
   };
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={addItemHandler}>
           <div>
             <label
               htmlFor="title"
