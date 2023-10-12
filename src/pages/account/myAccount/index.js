@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import Form from "../../../components/form";
+import { AuthContext } from "../../../Context/AuthContext";
 
 // firebase
 // import { getDatabase, ref, set, onValue } from "firebase/database";
@@ -60,7 +62,10 @@ import Form from "../../../components/form";
 // With LocalStorage signUp and signIn
 
 // Create context
-const MyAccount = ({ setUserLoggedInImg }) => {
+const MyAccount = () => {
+  const autCtx = useContext(AuthContext);
+  const imageSave = autCtx.signInForImageHandler;
+  const setLoggedIn = autCtx.signInHandler;
   // signUp Function
   const signUpUser = (firstName, lastName, email, password, imageUrl) => {
     let userFind = localStorage.getItem(email);
@@ -90,7 +95,8 @@ const MyAccount = ({ setUserLoggedInImg }) => {
     if (userFind) {
       if (userFind.email === email && userFind.password === password) {
         alert("User Sucessfully Login");
-        setUserLoggedInImg(userFind.imageUrl);
+        imageSave(userFind.imageUrl);
+        setLoggedIn(true);
         console.log(userFind.imageUrl);
       } else {
         alert("Please type correct password");
