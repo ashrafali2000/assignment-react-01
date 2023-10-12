@@ -66,6 +66,7 @@ const MyAccount = () => {
   const autCtx = useContext(AuthContext);
   const imageSave = autCtx.signInForImageHandler;
   const setLoggedIn = autCtx.signInHandler;
+  const userEmail = autCtx.emailHandler;
   // signUp Function
   const signUpUser = (firstName, lastName, email, password, imageUrl) => {
     let userFind = localStorage.getItem(email);
@@ -82,7 +83,7 @@ const MyAccount = () => {
       } else {
         localStorage.setItem(
           email,
-          JSON.stringify({ firstName, lastName, email, password, imageUrl })
+          JSON.stringify({ firstName, lastName, email, password, imageUrl, products:[] })
         );
         alert("SignUp Sucessfull");
       }
@@ -96,6 +97,7 @@ const MyAccount = () => {
       if (userFind.email === email && userFind.password === password) {
         alert("User Sucessfully Login");
         imageSave(userFind.imageUrl);
+        userEmail(userFind.email);
         setLoggedIn(true);
         console.log(userFind.imageUrl);
       } else {
