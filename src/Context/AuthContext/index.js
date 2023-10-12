@@ -1,7 +1,10 @@
 import { createContext } from "react"
 
   export  const AuthContext = createContext({
-        imgUrl:""
+       isLoggedIn: false,
+        imgUrl:"",
+        signInForImageHandler:() => {},
+        signInHandler:() => {}
     })
   
 
