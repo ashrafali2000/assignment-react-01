@@ -12,14 +12,32 @@ import Cart from "./pages/account/cart";
 import SingleProductPage from "./pages/singleProductPage";
 import { useState } from "react";
 import NewItem from "./pages/newItem";
+import { AuthContext } from "./Context/AuthContext";
 
 function App() {
-  const [userLoggInImg, setUserLoggedInImg]  = useState("");
-  const [loginBtn, setLoginBtn] = useState(false);
+  const [userImg, setUserImg]  = useState("");
+  const [isLoggedIn, setIsloggedIn]  = useState(false);
+
+  const signInForImageHandler = (img) => {
+    setUserImg(img)
+  }
+
+  const signInHandler = () => {
+    setIsloggedIn(true)
+  }
+  
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Layout  userLoggInImg ={userLoggInImg}></Layout>} >
+        <Route path="/" element={
+          <AuthContext.Provider value={{
+            isLoggedIn: isLoggedIn,
+            imgUrl:userImg,
+            signInHandler
+          }}>
+        <Layout></Layout>
+            </AuthContext.Provider>
+        } >
         <Route index element={<Home></Home>} />
         <Route path="about" element={<About></About>} />
         <Route path="dashboard" element={<Dashboard></Dashboard>} />
@@ -28,11 +46,14 @@ function App() {
         <Route path="allProducts/singleProductPage/:porductID" element={<SingleProductPage></SingleProductPage>} />
 
         {/* nested route */}
-     
           <Route path="account/" >
           <Route index element={
-              <MyAccount setUserLoggedInImg={setUserLoggedInImg}></MyAccount>
-          } />
+            <AuthContext.Provider value={{
+              signInForImageHandler,signInHandler
+            }}>
+              <MyAccount ></MyAccount>
+              </AuthContext.Provider>
+            } />
           <Route path="cart" element={<Cart></Cart>} />
         </Route>
         {/* end nested route */}
