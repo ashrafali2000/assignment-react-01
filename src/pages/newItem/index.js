@@ -7,6 +7,7 @@ const NewItem = () => {
   const titleRef = useRef();
   const priceRef = useRef();
   const brandRef = useRef();
+  const imageUrlRef = useRef();
 
   const addItemHandler = (event) => {
     event.preventDefault()
@@ -15,9 +16,10 @@ const NewItem = () => {
         const title = titleRef.current.value;
         const price = priceRef.current.value;
         const brand = brandRef.current.value;
+        const image = imageUrlRef.current.value;
         console.log(find)
         const {products}  = find;
-        products.push({id:products.length, title:title,price:price,brand:brand})
+        products.push({id:products.length, title:title,price:price,brand:brand, image:image})
 
       localStorage.setItem(find.email,JSON.stringify({...find, products}))
     }
@@ -98,7 +100,7 @@ const NewItem = () => {
                 name="imagesUrl"
                 type="url"
                 autoComplete="imagesUrl"
-                ref={brandRef}
+                ref={imageUrlRef}
                 required
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
