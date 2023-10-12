@@ -3,20 +3,46 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Outlet, Link } from "react-router-dom";
 import logo from "../../logo.png";
+import { AuthContext } from "../../Context/AuthContext";
 
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "AllProducts", href: "/allProducts", current: false },
-  { name: "Contact", href: "/contact", current: false },
-  { name: "Account", href: "/account", current: false },
-  { name: "AddProduct", href: "/addProduct", current: false },
-];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+export default function Layout() {
+  const userCtx = useContext(AuthContext);
+  const userImage = userCtx.imgUrl;
+  const isLoggedIn = userCtx.isLoggedIn;
+  
 
-export default function Layout({ userLoggInImg,loginBtn, setLoginBtn}) {
+
+
+
+
+
+  const navigation1 = [
+    { name: "Home", href: "/", current: true },
+    { name: "AllProducts", href: "/allProducts", current: false },
+    { name: "Contact", href: "/contact", current: false },
+    { name: "Account", href: "/account", current: false },
+    { name: "AddProduct", href: "/addProduct", current: false },
+  ];
+
+  const navigation2 = [
+    { name: "Home", href: "/", current: true },
+    { name: "AllProducts", href: "/allProducts", current: false },
+    { name: "Contact", href: "/contact", current: false },
+    { name: "Account", href: "/account", current: false },
+  ];
+  
+  const navigation = isLoggedIn ? navigation1 : navigation2;
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+  
+
+
+
+
+
+
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-700">
@@ -63,7 +89,7 @@ export default function Layout({ userLoggInImg,loginBtn, setLoginBtn}) {
              
 
                 {/* Profile dropdown */}
-                {userLoggInImg ? 
+                {userImage ? 
                   <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                     <button
                       type="button"
@@ -80,7 +106,7 @@ export default function Layout({ userLoggInImg,loginBtn, setLoginBtn}) {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
-                            src={userLoggInImg}
+                            src={userImage}
                             alt=""
                           />
                         </Menu.Button>
