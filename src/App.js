@@ -11,6 +11,7 @@ import MyAccount from "./pages/account/myAccount";
 import Cart from "./pages/account/cart";
 import SingleProductPage from "./pages/singleProductPage";
 import { useState } from "react";
+import NewItem from "./pages/newItem";
 
 function App() {
   const [userLoggInImg, setUserLoggedInImg]  = useState("");
@@ -23,6 +24,7 @@ function App() {
         <Route path="about" element={<About></About>} />
         <Route path="dashboard" element={<Dashboard></Dashboard>} />
         <Route path="allProducts" element={<AllProducts></AllProducts>} />
+        <Route path="addProduct" element={<NewItem></NewItem>} />
         <Route path="allProducts/singleProductPage/:porductID" element={<SingleProductPage></SingleProductPage>} />
 
         {/* nested route */}
