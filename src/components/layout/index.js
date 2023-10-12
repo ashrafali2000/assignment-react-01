@@ -22,6 +22,7 @@ export default function Layout() {
     { name: "AllProducts", href: "/allProducts", current: false },
     { name: "Contact", href: "/contact", current: false },
     { name: "Account", href: "/account", current: false },
+    { name: "Dashboard", href: "/dashboard", current: false },
     { name: "AddProduct", href: "/addProduct", current: false },
   ];
 
