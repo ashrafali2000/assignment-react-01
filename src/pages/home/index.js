@@ -207,7 +207,7 @@ const Home = () => {
         <div className="flex justify-center mt-5">
           <hr className="bg-orange-600 w-40 h-2 rounded " />
         </div>
-        <div className="flex flex-wrap mt-10 p-8 gap-10 bg-gray-200 justify-center">
+        <div className="flex  flex-wrap mt-10 p-8 gap-10 bg-gray-200 justify-center">
           {images.map((p) => (
             <Image
               key={Math.random()}
