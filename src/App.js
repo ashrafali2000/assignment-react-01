@@ -16,6 +16,7 @@ import { AuthContext } from "./Context/AuthContext";
 
 function App() {
   const [userImg, setUserImg]  = useState("");
+  const [userEmail, setUserEmail]  = useState("");
   const [isLoggedIn, setIsloggedIn]  = useState(false);
 
   const signInForImageHandler = (img) => {
@@ -24,6 +25,9 @@ function App() {
 
   const signInHandler = () => {
     setIsloggedIn(true)
+  }
+  const emailHandler = (email) => {
+    setUserEmail(email)
   }
   
   return (
@@ -40,16 +44,32 @@ function App() {
         } >
         <Route index element={<Home></Home>} />
         <Route path="about" element={<About></About>} />
-        <Route path="dashboard" element={<Dashboard></Dashboard>} />
+        <Route path="dashboard" element={
+          
+          <AuthContext.Provider value={{
+            userEmail:userEmail
+          }}>
+
+        <Dashboard></Dashboard>
+          </AuthContext.Provider>
+      } 
+        />
         <Route path="allProducts" element={<AllProducts></AllProducts>} />
-        <Route path="addProduct" element={<NewItem></NewItem>} />
+        <Route path="addProduct" element={
+          <AuthContext.Provider value={{
+            userEmail:userEmail
+          }}>
+        <NewItem></NewItem>
+          </AuthContext.Provider>
+      }
+         />
         <Route path="allProducts/singleProductPage/:porductID" element={<SingleProductPage></SingleProductPage>} />
 
         {/* nested route */}
           <Route path="account/" >
           <Route index element={
             <AuthContext.Provider value={{
-              signInForImageHandler,signInHandler
+              signInForImageHandler,signInHandler,emailHandler
             }}>
               <MyAccount ></MyAccount>
               </AuthContext.Provider>
