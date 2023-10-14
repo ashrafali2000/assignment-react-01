@@ -1,21 +1,17 @@
 import { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate} from "react-router-dom";
 import logo from "../../logo.png";
 import { AuthContext } from "../../Context/AuthContext";
 
 
 export default function Layout() {
+  const navigate = useNavigate();
   const userCtx = useContext(AuthContext);
   const userImage = userCtx.imgUrl;
   const isLoggedIn = userCtx.isLoggedIn;
   
-
-
-
-
-
 
   const navigation1 = [
     { name: "Home", href: "/", current: true },
@@ -38,12 +34,9 @@ export default function Layout() {
     return classes.filter(Boolean).join(" ");
   }
   
-
-
-
-
-
-
+ const signInHandlerBtn = () => {
+  navigate('/account')
+ }
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-700">
@@ -166,12 +159,12 @@ export default function Layout() {
                     </Menu>
                   </div>
                  : <div className="flex flew-wrap ">
-                   <Link href="" className=" bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
+                   <button onClick={signInHandlerBtn} className=" bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                      Log in
-                   </Link>
-                   <Link href="" className=" bg-neutral-500 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded">
+                   </button>
+                   <button  className=" bg-neutral-500 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded">
                      Sing up
-                   </Link>
+                   </button>
                  </div>}
               </div>
             </div>
