@@ -162,9 +162,9 @@ export default function Layout() {
                    <button onClick={signInHandlerBtn} className=" bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                      Log in
                    </button>
-                   <button  className=" bg-neutral-500 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded">
+                   {/* <button  className=" bg-neutral-500 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded">
                      Sing up
-                   </button>
+                   </button> */}
                  </div>}
               </div>
             </div>
