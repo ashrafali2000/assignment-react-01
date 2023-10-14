@@ -44,23 +44,23 @@ const weekItem = [
 ];
 const LovedItem = [
   {
-    img: "https://cdn.edenrobe.com/media/amasty/amopttablet/catalog/product/images/Men/Men_Coat_Pant_Formal/2023/23_M_MenCoatPantFormal_EMTCPC22-6814_1.webp",
-    title: "Men Coat",
+    img: "https://rukminim1.flixcart.com/image/300/300/xif0q/kids-t-shirt/v/w/y/7-8-years-bmcs2tee2002-7-8-wmb-rm-bmg-trendz-original-imagsuzghd3g4hch.jpeg",
+    title: "Men T-shirts",
     price: "80$",
   },
   {
-    img: "https://www.jiomart.com/images/product/original/rvdtte76wn/birde-stylish-comfortable-navy-sports-shoes-for-men-s-product-images-rvdtte76wn-0-202305250800.jpg?im=Resize=(500,630)",
-    title: "Sport Shoes",
-    price: "40$",
+    img: "https://m.media-amazon.com/images/I/71iYc16soNL._AC_UY300_.jpg",
+    title: "Jewellery",
+    price: "180$",
   },
   {
-    img: "https://pcdesignperfumes.com/wp-content/uploads/2020/07/03-2046-00-00.jpg",
-    title: "Smilly Perfume",
+    img: "https://tacticaltrading.pk/wp-content/uploads/2020/09/Survival-Bracelet-Watch-Paracord-Emergency-1-1.jpg",
+    title: "Watchs",
     price: "60$",
   },
   {
-    img: "https://pcdesignperfumes.com/wp-content/uploads/2020/07/03-2046-00-00.jpg",
-    title: "Smilly Perfume",
+    img: "https://m.media-amazon.com/images/I/61a+BmoKNIL._AC_SX522_.jpg",
+    title: "Women Shirt",
     price: "60$",
   },
 ];
@@ -254,7 +254,7 @@ const Home = () => {
         <div className="flex justify-center mt-5">
           <hr className="bg-orange-600 w-40 h-2 rounded " />
         </div>
-      <div className="flex justify-center items-center flex-wrap mt-8">
+      <div className="flex justify-center gap-8 items-center flex-wrap mt-8">
       <div className="w-[100] h-[100]  flex justify-center items-center flex-col">
             <img
               src={LovedItem[0].img}
