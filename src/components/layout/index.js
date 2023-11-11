@@ -20,6 +20,7 @@ export default function Layout() {
     { name: "Account", href: "/account", current: false },
     { name: "Dashboard", href: "/dashboard", current: false },
     { name: "AddProduct", href: "/addProduct", current: false },
+    { name: "Check", href: "/check", current: false },
   ];
 
   const navigation2 = [

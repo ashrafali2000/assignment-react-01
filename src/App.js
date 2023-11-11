@@ -13,6 +13,7 @@ import SingleProductPage from "./pages/singleProductPage";
 import { useState } from "react";
 import NewItem from "./pages/newItem";
 import { AuthContext } from "./Context/AuthContext";
+import Check from "./pages/check";
 
 function App() {
   const [userImg, setUserImg]  = useState("");
@@ -80,6 +81,8 @@ function App() {
 
         <Route path="contact" element={<Contact></Contact>} />
         <Route path="addToCart" element={<AddToCart></AddToCart>} />
+
+        <Route path="check" element={<Check></Check>}/>
 
         </ Route>
       </Routes>
